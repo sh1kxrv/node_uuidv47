@@ -21,7 +21,8 @@ static std::string uuid_to_string(const uuid128_t &uuid) {
 static uuid128_t uuidv7_generate() {
     uuid128_t out;
 
-    uint64_t ms = get_milliseconds();
+    auto now = std::chrono::system_clock::now();
+    uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count();
 
     out.b[0] = (uint8_t)((ms >> 40) & 0xFF);
     out.b[1] = (uint8_t)((ms >> 32) & 0xFF);
