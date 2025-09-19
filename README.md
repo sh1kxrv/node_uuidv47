@@ -222,16 +222,6 @@ console.log('All match:', originalUUIDs.every((uuid, i) => uuid === decodedUUIDs
 
 The library is optimized for high-performance operations with global key management:
 
-### Benchmarks
-
-Performance tests on a modern system show excellent throughput:
-
-```
-✓ 1,000 encode/decode operations: ~2-5ms
-✓ 10,000 encode/decode operations: ~20-50ms
-✓ 100,000 encode/decode operations: ~200-500ms
-```
-
 ### Performance Benefits
 
 1. **Global Keys**: Set encryption keys once, eliminating parameter passing overhead
@@ -294,49 +284,6 @@ app.get('/api/users/:id', (req, res) => {
   
   res.json(response);
 });
-```
-
-### 3. Secure Token Generation
-
-```javascript
-// Generate secure, reversible tokens
-function generateSecureToken(userId) {
-  const uuid = uuidv7();
-  const token = uuidv47.encode(uuid);
-  
-  // Store mapping for later verification
-  tokenStore.set(token, { userId, uuid, createdAt: Date.now() });
-  
-  return token;
-}
-
-function verifyToken(token) {
-  const decoded = uuidv47.decode(token);
-  const tokenData = tokenStore.get(token);
-  
-  return tokenData && tokenData.uuid === decoded;
-}
-```
-
-### 4. Microservices Communication
-
-```javascript
-// Service A: Encode UUIDs before sending to Service B
-const serviceAData = {
-  requestId: uuidv47.encode(internalRequestId),
-  userId: uuidv47.encode(internalUserId)
-};
-
-await sendToServiceB(serviceAData);
-
-// Service B: Decode UUIDs for internal processing
-function processFromServiceA(data) {
-  const requestId = uuidv47.decode(data.requestId);
-  const userId = uuidv47.decode(data.userId);
-  
-  // Process with original UUIDs
-  return processRequest(requestId, userId);
-}
 ```
 
 ## Building from Source
