@@ -3,3 +3,4 @@ node_modules
 .DS_Store
 
 test_vectors_gen
+uuidv47.h
