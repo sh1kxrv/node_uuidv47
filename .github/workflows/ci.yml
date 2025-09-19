@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16.x, 18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
     - name: Checkout code
@@ -50,40 +50,6 @@ jobs:
 
     - name: Run tests
       run: pnpm test
-
-    - name: Upload coverage reports
-      if: matrix.os == 'ubuntu-latest' && matrix.node-version == '20.x'
-      uses: codecov/codecov-action@v3
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        fail_ci_if_error: false
-
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'
-
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: latest
-
-    - name: Install dependencies
-      run: pnpm install
-
-    - name: Check TypeScript definitions
-      run: npx tsc --noEmit index.d.ts
-
-    - name: Validate package.json
-      run: npx publint
-
   security:
     runs-on: ubuntu-latest
 

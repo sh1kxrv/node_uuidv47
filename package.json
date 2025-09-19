@@ -7,7 +7,8 @@
 	"scripts": {
 		"build": "node-gyp configure build",
 		"test": "jest",
-		"test:watch": "jest --watch"
+		"test:watch": "jest --watch",
+		"lint": "pnpx tsc --noEmit index.d.ts"
 	},
 	"gypfile": true,
 	"dependencies": {

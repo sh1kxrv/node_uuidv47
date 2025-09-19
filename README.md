@@ -1,5 +1,7 @@
 # node-uuidv47
 
+[![CI](https://github.com/sh1kxrv/node_uuidv47/actions/workflows/ci.yml/badge.svg)](https://github.com/sh1kxrv/node_uuidv47/actions/workflows/ci.yml)
+
 A high-performance Node.js N-API addon for UUIDv47 operations - encoding UUIDv7 into UUIDv4 facades and decoding them back.
 
 ## Features
