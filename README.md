@@ -330,6 +330,10 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 Contributions are welcome! Please read our contributing guidelines and submit pull requests to our repository.
 
+## Thanks
+
+- [@n2p5](https://github.com/n2p5/uuid47) - a go implementation of uuid47
+
 ## Support
 
 - 📖 [Documentation](https://github.com/sh1kxrv/node_uuidv47#readme)
