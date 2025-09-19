@@ -3,14 +3,14 @@
 	"version": "1.0.0",
 	"description": "Node.js N-API addon | UUIDv47",
 	"main": "index.js",
+	"types": "index.d.ts",
 	"scripts": {
 		"build": "node-gyp configure build"
 	},
 	"gypfile": true,
 	"dependencies": {
 		"bindings": "~1.5.0",
-		"node-addon-api": "^7.0.0",
-		"uuidv7": "^1.0.2"
+		"node-addon-api": "^7.0.0"
 	},
 	"keywords": [
 		"uuid",
