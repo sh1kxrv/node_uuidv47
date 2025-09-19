@@ -10,38 +10,42 @@
 export function uuidParse(uuid: string): boolean;
 
 /**
- * Encodes a UUID with additional facade parameters
- * @param uuid - The UUID string to encode
- * @param param1 - First bigint parameter for encoding
- * @param param2 - Second bigint parameter for encoding
- * @returns Encoded result
+ * Sets global keys for simplified encoding/decoding operations
+ * @param key0 - First key parameter
+ * @param key1 - Second key parameter
+ * @returns True if keys were set successfully
  */
-export function encodeFacade(
-	uuid: string,
-	param1: bigint,
-	param2: bigint,
-): string;
+export function setKeys(key0: bigint, key1: bigint): boolean;
 
 /**
- * Decodes a previously encoded facade back to original form
- * @param encoded - The encoded data to decode
- * @param param1 - First bigint parameter used in encoding
- * @param param2 - Second bigint parameter used in encoding
- * @returns Decoded UUID string or result
+ * Encodes a UUID using previously set global keys
+ * @param uuid - The UUID string to encode
+ * @returns Encoded facade string
  */
-export function decodeFacade(
-	encoded: string,
-	param1: bigint,
-	param2: bigint,
-): string;
+export function encode(uuid: string): string;
+
+/**
+ * Decodes a facade using previously set global keys
+ * @param encoded - The encoded facade string to decode
+ * @returns Decoded UUID string
+ */
+export function decode(encoded: string): string;
+
+/**
+ * Checks if global keys have been set
+ * @returns True if keys are set, false otherwise
+ */
+export function hasKeys(): boolean;
 
 /**
  * Default export containing all functions
  */
 declare const uuidv47: {
 	uuidParse: typeof uuidParse;
-	encodeFacade: typeof encodeFacade;
-	decodeFacade: typeof decodeFacade;
+	setKeys: typeof setKeys;
+	encode: typeof encode;
+	decode: typeof decode;
+	hasKeys: typeof hasKeys;
 };
 
 export default uuidv47;

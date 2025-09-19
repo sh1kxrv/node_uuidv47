@@ -2,6 +2,8 @@ const addon = require("bindings")("uuidv47");
 
 module.exports = {
 	uuidParse: addon.uuidParse,
-	encodeFacade: addon.encodeFacade,
-	decodeFacade: addon.decodeFacade,
+	setKeys: addon.setKeys,
+	encode: addon.encode,
+	decode: addon.decode,
+	hasKeys: addon.hasKeys,
 };

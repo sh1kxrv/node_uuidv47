@@ -5,12 +5,25 @@
 	"main": "index.js",
 	"types": "index.d.ts",
 	"scripts": {
-		"build": "node-gyp configure build"
+		"build": "node-gyp configure build",
+		"test": "jest",
+		"test:watch": "jest --watch"
 	},
 	"gypfile": true,
 	"dependencies": {
 		"bindings": "~1.5.0",
 		"node-addon-api": "^7.0.0"
+	},
+	"devDependencies": {
+		"jest": "^29.7.0",
+		"uuid": "^10.0.0"
+	},
+	"jest": {
+		"testEnvironment": "node",
+		"testMatch": [
+			"**/__tests__/**/*.js",
+			"**/?(*.)+(spec|test).js"
+		]
 	},
 	"keywords": [
 		"uuid",
