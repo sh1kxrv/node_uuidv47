@@ -1,5 +1,7 @@
-const { uuidv47 } = require("bindings")("uuidv47");
+const addon = require("bindings")("uuidv47");
 
-const u47 = uuidv47();
-
-console.log(u47);
+module.exports = {
+	uuidv47: addon.uuidv47,
+	encodeFacade: addon.encodeFacade,
+	decodeFacade: addon.decodeFacade,
+};
