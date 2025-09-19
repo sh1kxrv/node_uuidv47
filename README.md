@@ -15,3 +15,9 @@ mber(end - start) / 1000000; console.log('Time taken:', duration.toFixed(2), 'ms
 > Performance test - generating 10,000 UUIDs:
 Time taken: 9.33 ms
 Rate: 1071266 UUIDs/second
+
+## Requirements
+
+- node-gyp
+- node-addon-api
+- bindings
