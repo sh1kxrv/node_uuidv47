@@ -269,25 +269,6 @@ const user = await db.users.findOne({ id: facade });
 const originalUUID = uuidv47.decode(user.id);
 ```
 
-### 2. API Response Masking
-
-```javascript
-// Mask internal UUIDs in API responses
-app.get('/api/users/:id', (req, res) => {
-  const internalUUID = req.params.id;
-  const user = getUserById(internalUUID);
-  
-  // Encode sensitive UUIDs in response
-  const response = {
-    id: uuidv47.encode(user.id),
-    profileId: uuidv47.encode(user.profileId),
-    name: user.name
-  };
-  
-  res.json(response);
-});
-```
-
 ## Building from Source
 
 ```bash
@@ -309,8 +290,8 @@ pnpm test
 
 This project includes comprehensive CI/CD with GitHub Actions:
 
-- **Multi-platform testing**: Ubuntu, Windows, macOS
-- **Multi-version Node.js**: 16.x, 18.x, 20.x, 22.x
+- **Multi-platform testing**: Ubuntu, macOS
+- **Multi-version Node.js**: 18.x, 20.x, 22.x
 - **Automated testing**: Jest test suite with performance benchmarks
 - **TypeScript validation**: Type checking and definition validation
 - **Security auditing**: Dependency vulnerability scanning
@@ -321,6 +302,7 @@ This project includes comprehensive CI/CD with GitHub Actions:
 - Node.js >= 16.0.0
 - C++ compiler (for building from source)
 - Python 3.x (for node-gyp)
+- Make
 
 ## License
 
